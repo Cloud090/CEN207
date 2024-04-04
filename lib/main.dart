@@ -7,27 +7,36 @@ import 'package:flutter/material.dart' show BoxDecoration, BuildContext, Center,
 class MyAppBar extends StatelessWidget {
   const MyAppBar({required this.title, super.key});
 
-  // Fields in a Widget subclass are always marked "final".
-
   final Widget title;
 
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 56, // in logical pixels
+      height: 56,
       padding: const EdgeInsets.symmetric(horizontal: 8),
       decoration: BoxDecoration(color: Colors.blue[500]),
-      // Row is a horizontal, linear layout.
       child: Row(
         children: [
           const IconButton(
             icon: Icon(Icons.menu),
             tooltip: 'Navigation menu',
-            onPressed: null, // null disables the button
+            onPressed: null,
           ),
-          // Expanded expands its child to fill the available space.
           Expanded(
-            child: title,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                title,
+              ],
+            ),
+          ),
+          Container(
+            padding: const EdgeInsets.only(right: 0), // Adjust the padding as needed
+            child: Text(
+              'Powered by CheckitOut',
+              style: TextStyle(fontSize: 8, color: Colors.white),
+              textAlign: TextAlign.right,
+            ),
           ),
           const IconButton(
             icon: Icon(Icons.search),
@@ -45,26 +54,43 @@ class MyScaffold extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // Material is a conceptual piece
-    // of paper on which the UI appears.
-    return Material(
-      // Column is a vertical, linear layout.
-      child: Column(
-        children: [
-          MyAppBar(
-            title: Text(
-              'OneStop',
-              style: Theme.of(context) //
-                  .primaryTextTheme
-                  .titleLarge,
+    return GestureDetector( // Add GestureDetector here
+      onTap: () {
+        Navigator.push(
+          context,
+          MaterialPageRoute(builder: (context) => SecondPage()),
+        );
+      },
+      child: Material(
+        child: Column(
+          children: [
+            MyAppBar(
+              title: Text(
+                'OneStop',
+                style: Theme.of(context).primaryTextTheme.titleLarge,
+              ),
             ),
-          ),
-          const Expanded(
-            child: Center(
-              child: Text(', Hello. 123 world?'),
+            const Expanded(
+              child: Center(
+                child: Text(', Hello. 123 world?'),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
+      ),
+    );
+  }
+}
+
+class SecondPage extends StatelessWidget {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text('Checkout Page'),
+      ),
+      body: Center(
+        child: Text('This is the Checkout page'),
       ),
     );
   }
