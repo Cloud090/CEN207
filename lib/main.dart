@@ -2,7 +2,7 @@ import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' show BoxDecoration, BuildContext, Center, Colors, Column, Container, EdgeInsets, Expanded, Icon, IconButton, Icons, Material, MaterialApp, Row, SafeArea, StatelessWidget, Text, Theme, Widget, runApp;
 
 class MyAppBar extends StatelessWidget {
   const MyAppBar({required this.title, super.key});
@@ -61,7 +61,7 @@ class MyScaffold extends StatelessWidget {
           ),
           const Expanded(
             child: Center(
-              child: Text('Hello, world!'),
+              child: Text('Hello, Hello. 123 world?'),
             ),
           ),
         ],
@@ -81,41 +81,3 @@ void main() {
   );
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
-
-  @override
-  Widget build(BuildContext context) {
-    return ChangeNotifierProvider(
-      create: (context) => MyAppState(),
-      child: MaterialApp(
-        title: 'Checkout & Landing Page App',
-        theme: ThemeData(
-          useMaterial3: true,
-          colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepOrange),
-        ),
-        home: MyHomePage(),
-      ),
-    );
-  }
-}
-
-class MyAppState extends ChangeNotifier {
-  var current = WordPair.random();
-}
-
-class MyHomePage extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    var appState = context.watch<MyAppState>();
-
-    return Scaffold(
-      body: Column(
-        children: [
-          Text('A random idea:'),
-          Text(appState.current.asLowerCase),
-        ],
-      ),
-    );
-  }
-}

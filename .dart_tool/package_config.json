@@ -266,13 +266,13 @@
       "languageVersion": "3.3"
     },
     {
-      "name": "namer_app",
+      "name": "CEN_Team_1_ChickItOut_app",
       "rootUri": "../",
       "packageUri": "lib/",
       "languageVersion": "3.1"
     }
   ],
-  "generated": "2024-04-02T02:08:34.471285Z",
+  "generated": "2024-04-04T05:36:10.434109Z",
   "generator": "pub",
   "generatorVersion": "3.3.1"
 }
