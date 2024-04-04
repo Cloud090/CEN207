@@ -53,15 +53,18 @@ class MyScaffold extends StatelessWidget {
         children: [
           MyAppBar(
             title: Text(
-              'OneStop: Team 1 Ass 2',
+              'OneStop',
               style: Theme.of(context) //
                   .primaryTextTheme
                   .titleLarge,
             ),
+            title: const Center(
+              child: Text('Powered by OneStop')
+            )
           ),
           const Expanded(
             child: Center(
-              child: Text('Hello, Hello. 123 world?'),
+              child: Text(', Hello. 123 world?'),
             ),
           ),
         ],
