@@ -2,8 +2,6 @@ import 'package:english_words/english_words.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
-import 'package:flutter/material.dart' show BoxDecoration, BuildContext, Center, Colors, Column, Container, EdgeInsets, Expanded, Icon, IconButton, Icons, Material, MaterialApp, Row, SafeArea, StatelessWidget, Text, Theme, Widget, runApp;
-
 class MyAppBar extends StatelessWidget {
   const MyAppBar({required this.title, super.key});
 
@@ -18,20 +16,21 @@ class MyAppBar extends StatelessWidget {
       child: Row(
         children: [
           const IconButton(
-            icon: Icon(Icons.menu),
+            icon: Icon(Icons.shopping_cart),
             tooltip: 'Navigation menu',
             onPressed: null,
           ),
           Expanded(
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
+              mainAxisAlignment: MainAxisAlignment.center, // Center the title widget vertically
               children: [
-                title,
+                title, // Center align the title widget
               ],
             ),
           ),
           Container(
-            padding: const EdgeInsets.only(right: 0), // Adjust the padding as needed
+            padding: const EdgeInsets.only(right: 0),
             child: Text(
               'Powered by CheckitOut',
               style: TextStyle(fontSize: 8, color: Colors.white),
