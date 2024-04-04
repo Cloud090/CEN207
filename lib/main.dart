@@ -58,9 +58,6 @@ class MyScaffold extends StatelessWidget {
                   .primaryTextTheme
                   .titleLarge,
             ),
-            title: const Center(
-              child: Text('Powered by OneStop')
-            )
           ),
           const Expanded(
             child: Center(
