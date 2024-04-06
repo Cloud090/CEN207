@@ -284,7 +284,7 @@ class _ShoppingCartState extends State<ShoppingCart> {
             ListTile(
               title: Text(
                 'Total: \$${total.toStringAsFixed(2)}',
-                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 21, fontWeight: FontWeight.bold),
               ),
             ),
             Divider(),
@@ -575,7 +575,6 @@ class _ShoppingCartState extends State<ShoppingCart> {
         onPressed: () {
           if (_formKey.currentState!.validate()) {
             // Form is valid, proceed with checkout
-            // For demonstration, you can print a message
             print('Form is valid. Proceed with checkout.');
           }
         },
