@@ -127,19 +127,28 @@ class ShoppingCart extends StatefulWidget {
 }
 
 class _ShoppingCartState extends State<ShoppingCart> {
-  double deliveryFee = 12; // Initial delivery fee for Australia
   String selectedCountry = 'Australia'; // Default selected country
+  double deliveryFee = 0; // Declare deliveryFee as a field
 
-  List<String> countries = [
-    'Australia', 'United States', 'United Kingdom', 'Canada', 'India', 'Japan', // Add more countries as needed
-  ];
+  double calculateDeliveryFee(int itemCount) {
+    if (itemCount > 0) {
+      if (selectedCountry == 'Australia') {
+        deliveryFee = 12;
+      } else {
+        deliveryFee = 16;
+      }
+    } else {
+      deliveryFee = 0; // Set delivery fee to 0 when cart is empty
+    }
+    return deliveryFee;
+  }
 
   double get total {
     double productsTotal = widget.products.fold(
       0,
           (sum, product) => sum + (product.productPrice * product.quantity),
     );
-    return productsTotal + deliveryFee; // Add delivery fee to total
+    return productsTotal + calculateDeliveryFee(widget.products.length); // Use the calculateDeliveryFee method here
   }
 
   double get gst {
@@ -218,7 +227,7 @@ class _ShoppingCartState extends State<ShoppingCart> {
               Divider(),
               ListTile(
                 title: Text(
-                  'Delivery Fee: \$${deliveryFee.toStringAsFixed(2)}',
+                  'Delivery Fee: \$${calculateDeliveryFee(widget.products.length).toStringAsFixed(2)}',
                   style: TextStyle(fontSize: 16),
                 ),
                 subtitle: Text(
@@ -283,19 +292,40 @@ class _ShoppingCartState extends State<ShoppingCart> {
                           'Country: ',
                           style: TextStyle(fontSize: 16),
                         ),
-                        DropdownButton<String>(
-                          value: selectedCountry,
-                          onChanged: (String? newValue) {
-                            setState(() {
-                              selectedCountry = newValue!;
-                            });
-                          },
-                          items: countries.map<DropdownMenuItem<String>>((String value) {
-                            return DropdownMenuItem<String>(
-                              value: value,
-                              child: Text(value),
+                        ElevatedButton(
+                          onPressed: () {
+                            showCountryPicker(
+                              context: context,
+                              countryListTheme: CountryListThemeData(
+                                flagSize: 25,
+                                backgroundColor: Colors.white,
+                                textStyle: TextStyle(fontSize: 16, color: Colors.blueGrey),
+                                bottomSheetHeight: 500, // Optional. Country list modal height
+                                //Optional. Sets the border radius for the bottomsheet.
+                                borderRadius: BorderRadius.only(
+                                  topLeft: Radius.circular(20.0),
+                                  topRight: Radius.circular(20.0),
+                                ),
+                                //Optional. Styles the search field.
+                                inputDecoration: InputDecoration(
+                                  labelText: 'Search',
+                                  hintText: 'Start typing to search',
+                                  prefixIcon: const Icon(Icons.search),
+                                  border: OutlineInputBorder(
+                                    borderSide: BorderSide(
+                                      color: const Color(0xFF8C98A8).withOpacity(0.2),
+                                    ),
+                                  ),
+                                ),
+                              ),
+                              onSelect: (Country country) {
+                                setState(() {
+                                  selectedCountry = country.displayName ?? 'Australia';
+                                });
+                              },
                             );
-                          }).toList(),
+                          },
+                          child: Text(selectedCountry),
                         ),
                       ],
                     ),
