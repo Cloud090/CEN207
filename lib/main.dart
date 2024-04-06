@@ -53,7 +53,7 @@ class _HomePageState extends State<HomePage> {
           'OneStop',
           style: TextStyle(color: Colors.white),
         ),
-        backgroundColor: Colors.blue, // Set header color to blue
+        backgroundColor: Colors.blue,
         actions: [
           Padding(
             padding: EdgeInsets.symmetric(horizontal: 16),
@@ -65,7 +65,7 @@ class _HomePageState extends State<HomePage> {
         ],
       ),
       body: Container(
-        color: Colors.white, // Set container color to white
+        color: Colors.white,
         child: ListView.builder(
           itemCount: widget.products.length,
           itemBuilder: (context, index) {
@@ -127,8 +127,31 @@ class ShoppingCart extends StatefulWidget {
 }
 
 class _ShoppingCartState extends State<ShoppingCart> {
-  String selectedCountry = 'Australia'; // Default selected country
-  double deliveryFee = 0; // Declare deliveryFee as a field
+  String selectedCountry = 'Australia';
+  double deliveryFee = 0;
+  DateTime? selectedDate;
+
+  final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
+  final ScrollController _scrollController = ScrollController();
+  bool showCosts = false;
+
+  @override
+  void initState() {
+    super.initState();
+    _scrollController.addListener(_scrollListener);
+  }
+
+  void _scrollListener() {
+    if (_scrollController.offset > 0 && !_scrollController.position.outOfRange) {
+      setState(() {
+        showCosts = true;
+      });
+    } else {
+      setState(() {
+        showCosts = false;
+      });
+    }
+  }
 
   double calculateDeliveryFee(int itemCount) {
     if (itemCount > 0) {
@@ -138,7 +161,7 @@ class _ShoppingCartState extends State<ShoppingCart> {
         deliveryFee = 16;
       }
     } else {
-      deliveryFee = 0; // Set delivery fee to 0 when cart is empty
+      deliveryFee = 0;
     }
     return deliveryFee;
   }
@@ -148,11 +171,11 @@ class _ShoppingCartState extends State<ShoppingCart> {
       0,
           (sum, product) => sum + (product.productPrice * product.quantity),
     );
-    return productsTotal + calculateDeliveryFee(widget.products.length); // Use the calculateDeliveryFee method here
+    return productsTotal + calculateDeliveryFee(widget.products.length);
   }
 
   double get gst {
-    return total * 0.1; // 10% GST
+    return total * 0.1;
   }
 
   @override
@@ -163,87 +186,112 @@ class _ShoppingCartState extends State<ShoppingCart> {
           'Shopping Cart',
           style: TextStyle(color: Colors.white),
         ),
-        backgroundColor: Colors.blue, // Set header color to blue
+        backgroundColor: Colors.blue,
       ),
       body: SingleChildScrollView(
-        child: Container(
-          color: Colors.white, // Set container color to white
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.start,
-            children: [
-              Text(
+        controller: _scrollController,
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Text(
                 'Your Cart (${widget.products.length} items)',
                 style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
               ),
-              ListView.builder(
-                shrinkWrap: true,
-                itemCount: widget.products.length,
-                itemBuilder: (context, index) {
-                  final product = widget.products[index];
-                  double subtotal = product.productPrice * product.quantity;
-
-                  return ListTile(
-                    title: Text(
-                      product.productName,
+            ),
+            widget.products.isEmpty
+                ? Center(
+              child: Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Column(
+                  children: [
+                    Text(
+                      "It's empty in here, Go Shopping",
                       style: TextStyle(fontSize: 18),
                     ),
-                    subtitle: Text(
-                      'Subtotal: \$${subtotal.toStringAsFixed(2)}',
-                      style: TextStyle(fontSize: 16),
+                    SizedBox(height: 8),
+                    ElevatedButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      child: Text('Back to Shopping'),
                     ),
-                    trailing: Row(
-                      mainAxisSize: MainAxisSize.min,
-                      children: [
-                        IconButton(
-                          icon: Icon(Icons.remove),
-                          onPressed: () {
-                            setState(() {
-                              if (product.quantity > 0) {
-                                product.quantity--;
-                                if (product.quantity == 0) {
-                                  widget.products.remove(product);
-                                }
+                  ],
+                ),
+              ),
+            )
+                : ListView.builder(
+              shrinkWrap: true,
+              itemCount: widget.products.length,
+              itemBuilder: (context, index) {
+                final product = widget.products[index];
+                double subtotal = product.productPrice * product.quantity;
+
+                return ListTile(
+                  title: Text(
+                    product.productName,
+                    style: TextStyle(fontSize: 18),
+                  ),
+                  subtitle: Text(
+                    'Subtotal: \$${subtotal.toStringAsFixed(2)}',
+                    style: TextStyle(fontSize: 16),
+                  ),
+                  trailing: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      IconButton(
+                        icon: Icon(Icons.remove),
+                        onPressed: () {
+                          setState(() {
+                            if (product.quantity > 0) {
+                              product.quantity--;
+                              if (product.quantity == 0) {
+                                widget.products.remove(product);
                               }
-                            });
-                          },
-                        ),
-                        Text(
-                          product.quantity.toString(),
-                          style: TextStyle(fontSize: 18),
-                        ),
-                        IconButton(
-                          icon: Icon(Icons.add),
-                          onPressed: () {
-                            setState(() {
-                              product.quantity++;
-                            });
-                          },
-                        ),
-                      ],
-                    ),
-                  );
-                },
+                            }
+                          });
+                        },
+                      ),
+                      Text(
+                        product.quantity.toString(),
+                        style: TextStyle(fontSize: 18),
+                      ),
+                      IconButton(
+                        icon: Icon(Icons.add),
+                        onPressed: () {
+                          setState(() {
+                            product.quantity++;
+                          });
+                        },
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+            Divider(),
+            ListTile(
+              title: Text(
+                'Delivery Fee: \$${calculateDeliveryFee(widget.products.length).toStringAsFixed(2)}',
+                style: TextStyle(fontSize: 16),
               ),
-              Divider(),
-              ListTile(
-                title: Text(
-                  'Delivery Fee: \$${calculateDeliveryFee(widget.products.length).toStringAsFixed(2)}',
-                  style: TextStyle(fontSize: 16),
-                ),
-                subtitle: Text(
-                  'GST: \$${gst.toStringAsFixed(2)}',
-                  style: TextStyle(fontSize: 16),
-                ),
+              subtitle: Text(
+                'GST: \$${gst.toStringAsFixed(2)}',
+                style: TextStyle(fontSize: 16),
               ),
-              ListTile(
-                title: Text(
-                  'Total: \$${total.toStringAsFixed(2)}',
-                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                ),
+            ),
+            ListTile(
+              title: Text(
+                'Total: \$${total.toStringAsFixed(2)}',
+                style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
               ),
-              Divider(), // Grey line to separate sections
-              Padding(
-                padding: EdgeInsets.all(16.0),
+            ),
+            Divider(),
+            Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Form(
+                key: _formKey,
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
@@ -252,20 +300,93 @@ class _ShoppingCartState extends State<ShoppingCart> {
                       style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 8),
-                    TextField(
-                      decoration: InputDecoration(labelText: 'First Name'),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: TextFormField(
+                            decoration: InputDecoration(labelText: 'First Name'),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter your first name';
+                              }
+                              return null;
+                            },
+                          ),
+                        ),
+                        SizedBox(width: 16),
+                        Expanded(
+                          child: TextFormField(
+                            decoration: InputDecoration(labelText: 'Last Name'),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter your last name';
+                              }
+                              return null;
+                            },
+                          ),
+                        ),
+                      ],
                     ),
-                    TextField(
-                      decoration: InputDecoration(labelText: 'Last Name'),
+                    SizedBox(height: 8),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: SizedBox(
+                            width: 120,
+                            child: TextFormField(
+                              decoration: InputDecoration(labelText: 'Date of Birth'),
+                              controller: TextEditingController(
+                                text: selectedDate != null
+                                    ? "${selectedDate!.day}/${selectedDate!.month}/${selectedDate!.year}"
+                                    : "",
+                              ),
+                              onTap: () async {
+                                final DateTime? pickedDate = await showDatePicker(
+                                  context: context,
+                                  initialDate: selectedDate ?? DateTime.now(),
+                                  firstDate: DateTime(1900),
+                                  lastDate: DateTime.now(),
+                                );
+                                if (pickedDate != null && pickedDate != selectedDate) {
+                                  setState(() {
+                                    selectedDate = pickedDate;
+                                  });
+                                }
+                              },
+                              validator: (value) {
+                                if (value == null || value.isEmpty) {
+                                  return 'Please select your date of birth';
+                                }
+                                return null;
+                              },
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 16),
+                        Expanded(
+                          flex: 2,
+                          child: TextFormField(
+                            decoration: InputDecoration(labelText: 'Phone Number'),
+                            keyboardType: TextInputType.phone,
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter your phone number';
+                              }
+                              return null;
+                            },
+                          ),
+                        ),
+                      ],
                     ),
-                    TextField(
-                      decoration: InputDecoration(labelText: 'Date of Birth'),
-                    ),
-                    TextField(
-                      decoration: InputDecoration(labelText: 'Phone Number'),
-                    ),
-                    TextField(
+                    SizedBox(height: 8),
+                    TextFormField(
                       decoration: InputDecoration(labelText: 'Email'),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter your email address';
+                        }
+                        return null;
+                      },
                     ),
                     SizedBox(height: 16),
                     Text(
@@ -273,21 +394,58 @@ class _ShoppingCartState extends State<ShoppingCart> {
                       style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 8),
-                    TextField(
+                    TextFormField(
                       decoration: InputDecoration(labelText: 'Street'),
-                    ),
-                    TextField(
-                      decoration: InputDecoration(labelText: 'Suburb/City'),
-                    ),
-                    TextField(
-                      decoration: InputDecoration(labelText: 'Postcode'),
-                    ),
-                    TextField(
-                      decoration: InputDecoration(labelText: 'State'),
+                      validator: (value) {
+                        if (value == null || value.isEmpty) {
+                          return 'Please enter your street';
+                        }
+                        return null;
+                      },
                     ),
                     SizedBox(height: 8),
                     Row(
                       children: [
+                        Expanded(
+                          child: TextFormField(
+                            decoration: InputDecoration(labelText: 'Suburb/City'),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter your suburb/city';
+                              }
+                              return null;
+                            },
+                          ),
+                        ),
+                        SizedBox(width: 16),
+                        Expanded(
+                          child: TextFormField(
+                            decoration: InputDecoration(labelText: 'Postcode'),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter your postcode';
+                              }
+                              return null;
+                            },
+                          ),
+                        ),
+                      ],
+                    ),
+                    SizedBox(height: 8),
+                    Row(
+                      children: [
+                        Expanded(
+                          child: TextFormField(
+                            decoration: InputDecoration(labelText: 'State'),
+                            validator: (value) {
+                              if (value == null || value.isEmpty) {
+                                return 'Please enter your state';
+                              }
+                              return null;
+                            },
+                          ),
+                        ),
+                        SizedBox(width: 16),
                         Text(
                           'Country: ',
                           style: TextStyle(fontSize: 16),
@@ -300,13 +458,11 @@ class _ShoppingCartState extends State<ShoppingCart> {
                                 flagSize: 25,
                                 backgroundColor: Colors.white,
                                 textStyle: TextStyle(fontSize: 16, color: Colors.blueGrey),
-                                bottomSheetHeight: 500, // Optional. Country list modal height
-                                //Optional. Sets the border radius for the bottomsheet.
+                                bottomSheetHeight: 500,
                                 borderRadius: BorderRadius.only(
                                   topLeft: Radius.circular(20.0),
                                   topRight: Radius.circular(20.0),
                                 ),
-                                //Optional. Styles the search field.
                                 inputDecoration: InputDecoration(
                                   labelText: 'Search',
                                   hintText: 'Start typing to search',
@@ -332,33 +488,106 @@ class _ShoppingCartState extends State<ShoppingCart> {
                   ],
                 ),
               ),
-              Divider(), // Grey line to separate sections
-              Padding(
-                padding: EdgeInsets.all(16.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      'Payment',
-                      style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                    ),
-                    SizedBox(height: 8),
-                    TextField(
-                      decoration: InputDecoration(labelText: 'Card Number'),
-                    ),
-                    TextField(
-                      decoration: InputDecoration(labelText: 'Expiry Date'),
-                    ),
-                    TextField(
-                      decoration: InputDecoration(labelText: 'CVV'),
-                    ),
-                  ],
-                ),
+            ),
+            Divider(),
+            Padding(
+              padding: EdgeInsets.all(16.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  // Other form fields...
+                  SizedBox(height: 16),
+                  Text(
+                    'Payment',
+                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                  ),
+                  SizedBox(height: 8),
+                  TextFormField(
+                    decoration: InputDecoration(labelText: 'Card Number'),
+                    validator: (value) {
+                      if (value == null || value.isEmpty) {
+                        return 'Please enter your card number';
+                      }
+                      return null;
+                    },
+                  ),
+                  SizedBox(height: 8),
+                  Row(
+                    children: [
+                      Expanded(
+                        child: TextFormField(
+                          decoration: InputDecoration(labelText: 'Expiry MM/DD'),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter your expiry date';
+                            }
+                            return null;
+                          },
+                        ),
+                      ),
+                      SizedBox(width: 16), // Add spacing between form fields
+                      Expanded(
+                        child: TextFormField(
+                          decoration: InputDecoration(labelText: 'CVV'),
+                          validator: (value) {
+                            if (value == null || value.isEmpty) {
+                              return 'Please enter your CVV';
+                            }
+                            return null;
+                          },
+                        ),
+                      ),
+                    ],
+                  ),
+                ],
               ),
-            ],
+            ),
+
+          ],
+        ),
+      ),
+      bottomNavigationBar: Visibility(
+        visible: showCosts,
+        child: BottomAppBar(
+          child: Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Delivery Fee: \$${calculateDeliveryFee(widget.products.length).toStringAsFixed(2)}',
+                  style: TextStyle(fontSize: 16),
+                ),
+                Text(
+                  'GST: \$${gst.toStringAsFixed(2)}',
+                  style: TextStyle(fontSize: 16),
+                ),
+                Text(
+                  'Total: \$${total.toStringAsFixed(2)}',
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
+                ),
+              ],
+            ),
           ),
         ),
       ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          if (_formKey.currentState!.validate()) {
+            // Form is valid, proceed with checkout
+            // For demonstration, you can print a message
+            print('Form is valid. Proceed with checkout.');
+          }
+        },
+        child: Icon(Icons.check),
+      ),
     );
+  }
+
+  @override
+  void dispose() {
+    _scrollController.removeListener(_scrollListener);
+    _scrollController.dispose();
+    super.dispose();
   }
 }
