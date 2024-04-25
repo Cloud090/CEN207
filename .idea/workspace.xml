@@ -9,21 +9,73 @@
     <option name="autoReloadType" value="NONE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="cc3026f9-c433-4735-9327-a4e6a3d1a8a6" name="Changes" comment="Added A Checkout Page">
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/e9f7768527fe9f16c95371e91c99dd3c/.filecache" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/e9f7768527fe9f16c95371e91c99dd3c/.filecache" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/e9f7768527fe9f16c95371e91c99dd3c/app.dill" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/e9f7768527fe9f16c95371e91c99dd3c/app.dill" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/e9f7768527fe9f16c95371e91c99dd3c/kernel_snapshot.d" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/e9f7768527fe9f16c95371e91c99dd3c/kernel_snapshot.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/e9f7768527fe9f16c95371e91c99dd3c/kernel_snapshot.stamp" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/e9f7768527fe9f16c95371e91c99dd3c/kernel_snapshot.stamp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+    <list default="true" id="cc3026f9-c433-4735-9327-a4e6a3d1a8a6" name="Changes" comment="Sick of Not being able to push zzz">
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_04_2024_10_39_am_[Changes]/shelved.patch" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_Update_at_24_04_2024_10_39_am__Changes_.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/app/intermediates/assets/debug/flutter_assets/assets/images/image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/app/intermediates/assets/debug/flutter_assets/assets/images/product1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/app/intermediates/assets/debug/flutter_assets/assets/images/product2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/app/intermediates/assets/debug/flutter_assets/assets/images/product3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/assets/images/image.png.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/assets/images/product1.png.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/assets/images/product2.png.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/assets/images/product3.png.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/assets/images/image.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/assets/images/product1.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/assets/images/product2.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/assets/images/product3.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/app/intermediates/incremental/debug-mergeJavaRes/zip-cache/U9OW46q1lx46tZWZMYWPws50_Og=" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/app/intermediates/project_dex_archive/debug/out/64254e116ab757c9e8703e907ddfd25cab14cf5ed78fb3746f2015ca93ff4e71_0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/app/intermediates/project_dex_archive/debug/out/64254e116ab757c9e8703e907ddfd25cab14cf5ed78fb3746f2015ca93ff4e71_1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/app/intermediates/project_dex_archive/debug/out/64254e116ab757c9e8703e907ddfd25cab14cf5ed78fb3746f2015ca93ff4e71_2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/app/intermediates/project_dex_archive/debug/out/64254e116ab757c9e8703e907ddfd25cab14cf5ed78fb3746f2015ca93ff4e71_3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/app/intermediates/project_dex_archive/debug/out/64254e116ab757c9e8703e907ddfd25cab14cf5ed78fb3746f2015ca93ff4e71_4.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/app/intermediates/project_dex_archive/debug/out/64254e116ab757c9e8703e907ddfd25cab14cf5ed78fb3746f2015ca93ff4e71_6.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/app/intermediates/project_dex_archive/debug/out/64254e116ab757c9e8703e907ddfd25cab14cf5ed78fb3746f2015ca93ff4e71_7.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/app/intermediates/project_dex_archive/debug/out/64254e116ab757c9e8703e907ddfd25cab14cf5ed78fb3746f2015ca93ff4e71_8.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/app/intermediates/project_dex_archive/debug/out/64254e116ab757c9e8703e907ddfd25cab14cf5ed78fb3746f2015ca93ff4e71_9.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/shared_preferences_android/.transforms/8e4228b32c918d29db92e9c477c67da4/results.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/shared_preferences_android/.transforms/8e4228b32c918d29db92e9c477c67da4/transformed/classes/classes.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/shared_preferences_android/generated/source/buildConfig/debug/io/flutter/plugins/sharedpreferences/BuildConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/shared_preferences_android/intermediates/aapt_friendly_merged_manifests/debug/aapt/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/shared_preferences_android/intermediates/aapt_friendly_merged_manifests/debug/aapt/output-metadata.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/shared_preferences_android/intermediates/aar_main_jar/debug/classes.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/shared_preferences_android/intermediates/aar_metadata/debug/aar-metadata.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/shared_preferences_android/intermediates/annotation_processor_list/debug/annotationProcessors.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/shared_preferences_android/intermediates/annotations_typedef_file/debug/typedefs.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/shared_preferences_android/intermediates/compile_library_classes_jar/debug/classes.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/shared_preferences_android/intermediates/compile_r_class_jar/debug/R.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/shared_preferences_android/intermediates/compile_symbol_list/debug/R.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/shared_preferences_android/intermediates/incremental/debug-mergeJavaRes/merge-state" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/shared_preferences_android/intermediates/incremental/debug/packageDebugResources/compile-file-map.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/shared_preferences_android/intermediates/incremental/debug/packageDebugResources/merger.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/shared_preferences_android/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/shared_preferences_android/intermediates/incremental/mergeDebugShaders/merger.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/shared_preferences_android/intermediates/incremental/packageDebugAssets/merger.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/shared_preferences_android/intermediates/javac/debug/classes/io/flutter/plugins/sharedpreferences/BuildConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/shared_preferences_android/intermediates/javac/debug/classes/io/flutter/plugins/sharedpreferences/Messages$FlutterError.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/shared_preferences_android/intermediates/javac/debug/classes/io/flutter/plugins/sharedpreferences/Messages$SharedPreferencesApi.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/shared_preferences_android/intermediates/javac/debug/classes/io/flutter/plugins/sharedpreferences/Messages.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/shared_preferences_android/intermediates/javac/debug/classes/io/flutter/plugins/sharedpreferences/SharedPreferencesListEncoder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/shared_preferences_android/intermediates/javac/debug/classes/io/flutter/plugins/sharedpreferences/SharedPreferencesPlugin$ListEncoder.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/shared_preferences_android/intermediates/javac/debug/classes/io/flutter/plugins/sharedpreferences/SharedPreferencesPlugin.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/shared_preferences_android/intermediates/local_only_symbol_list/debug/R-def.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/shared_preferences_android/intermediates/manifest_merge_blame_file/debug/manifest-merger-blame-debug-report.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/shared_preferences_android/intermediates/merged_java_res/debug/feature-shared_preferences_android.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/shared_preferences_android/intermediates/merged_manifest/debug/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/shared_preferences_android/intermediates/navigation_json/debug/navigation.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/shared_preferences_android/intermediates/packaged_manifests/debug/output-metadata.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/shared_preferences_android/intermediates/runtime_library_classes_jar/debug/classes.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/shared_preferences_android/intermediates/symbol_list_with_package_name/debug/package-aware-r.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/shared_preferences_android/outputs/aar/shared_preferences_android-debug.aar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/shared_preferences_android/outputs/logs/manifest-merger-debug-report.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/shared_preferences_android/tmp/compileDebugJavaWithJavac/previous-compilation-data.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/account.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/cart.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/order_viewer.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/success.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/ad1da8f7367d495224d4e79fc1121910.cache.dill.track.dill" beforeDir="false" afterPath="$PROJECT_DIR$/build/ad1da8f7367d495224d4e79fc1121910.cache.dill.track.dill" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/intermediates/assets/debug/flutter_assets/kernel_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/assets/debug/flutter_assets/kernel_blob.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/kernel_blob.bin.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/kernel_blob.bin.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/kernel_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/kernel_blob.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/outputs/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/apk/debug/app-debug.apk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app-debug.apk" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app-debug.apk.sha1" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app-debug.apk.sha1" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -44,6 +96,9 @@
   &quot;associatedIndex&quot;: 6
 }</component>
   <component name="ProjectId" id="2eTaZ3ZA18BmkFaCErY6RHHaOvX" />
+  <component name="ProjectLevelVcsManager">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectView">
     <navigator currentView="ProjectPane" proportions="" version="1" />
     <panes>
@@ -83,6 +138,11 @@
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="D:\CODE\CEN207\lib" />
+    </key>
+  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -169,7 +229,8 @@
     <MESSAGE value="Basic Foundation For Landing Page" />
     <MESSAGE value="Fixed Bug in pubspec.yml" />
     <MESSAGE value="Added A Checkout Page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added A Checkout Page" />
+    <MESSAGE value="Sick of Not being able to push zzz" />
+    <option name="LAST_COMMIT_MESSAGE" value="Sick of Not being able to push zzz" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
