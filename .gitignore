@@ -38,4 +38,8 @@ luac.out
 *.i*86
 *.x86_64
 *.hex
-
+*.apk
+*.msi
+*.deb
+*.rpm
+*.jar
