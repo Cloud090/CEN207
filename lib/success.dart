@@ -162,7 +162,7 @@ class OrderSuccessPage extends StatelessWidget {
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
                 Text(
-                  '\$${(totalAmount + gst + deliveryFee).toStringAsFixed(2)}',
+                  '\$${(totalAmount).toStringAsFixed(2)}',
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ],

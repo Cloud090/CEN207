@@ -188,7 +188,32 @@ class _HomePageState extends State<HomePage> {
               IconButton(
                 icon: Icon(Icons.menu, color: Colors.white),
                 onPressed: () {
-                  // Handle menu button tap
+
+                  if (userRole == UserRole.Administrator || userRole == UserRole.Staff) {
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => ActiveOrdersPage(),
+                      ),
+                    );
+                  } else {
+                    showDialog(
+                      context: context,
+                      builder: (context) => AlertDialog(
+                        title: Text('Access Denied'),
+                        content: Text('Only Administrators and Staff can view active orders.'),
+                        actions: <Widget>[
+                          TextButton(
+                            child: Text('OK'),
+                            onPressed: () {
+                              Navigator.of(context).pop();
+                            },
+                          ),
+                        ],
+                      ),
+                    );
+                  }
+
                 },
               ),
             Column(
@@ -312,35 +337,7 @@ class _HomePageState extends State<HomePage> {
             },
             child: Icon(Icons.shopping_cart),
           ),
-          FloatingActionButton(
-            onPressed: () {
-              if (userRole == UserRole.Administrator || userRole == UserRole.Staff) {
-                Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => ActiveOrdersPage(),
-                  ),
-                );
-              } else {
-                showDialog(
-                  context: context,
-                  builder: (context) => AlertDialog(
-                    title: Text('Access Denied'),
-                    content: Text('Only Administrators and Staff can view active orders.'),
-                    actions: <Widget>[
-                      TextButton(
-                        child: Text('OK'),
-                        onPressed: () {
-                          Navigator.of(context).pop();
-                        },
-                      ),
-                    ],
-                  ),
-                );
-              }
-            },
-            child: Icon(Icons.view_list),
-          )
+
         ],
       ),
     );

@@ -221,6 +221,7 @@ class _ShoppingCartState extends State<ShoppingCart> {
           style: TextStyle(color: Colors.white),
         ),
         backgroundColor: Colors.deepPurple,
+        iconTheme: IconThemeData(color: Colors.white),
       ),
       body: SingleChildScrollView(
         controller: _scrollController,
