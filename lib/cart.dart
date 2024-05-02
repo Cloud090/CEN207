@@ -3,6 +3,7 @@ import 'package:country_picker/country_picker.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import '../main.dart';
 import 'success.dart';
+import 'package:month_year_picker/month_year_picker.dart';
 
 class ShoppingCart extends StatefulWidget {
   final List<Product> products;
@@ -529,7 +530,7 @@ class _ShoppingCartState extends State<ShoppingCart> {
                     ),
                     Divider(),
                     Padding(
-                      padding: EdgeInsets.all(16.0),
+                      padding: EdgeInsets.all(0),
                       child: Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [

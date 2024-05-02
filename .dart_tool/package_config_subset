@@ -6,6 +6,10 @@ flutter
 3.2
 file:///C:/Users/joe/AppData/Local/Flutter/packages/flutter/
 file:///C:/Users/joe/AppData/Local/Flutter/packages/flutter/lib/
+flutter_localizations
+3.2
+file:///C:/Users/joe/AppData/Local/Flutter/packages/flutter_localizations/
+file:///C:/Users/joe/AppData/Local/Flutter/packages/flutter_localizations/lib/
 flutter_test
 3.2
 file:///C:/Users/joe/AppData/Local/Flutter/packages/flutter_test/
@@ -66,6 +70,10 @@ http_parser
 2.12
 file:///C:/Users/joe/AppData/Local/Pub/Cache/hosted/pub.dev/http_parser-4.0.2/
 file:///C:/Users/joe/AppData/Local/Pub/Cache/hosted/pub.dev/http_parser-4.0.2/lib/
+intl
+2.12
+file:///C:/Users/joe/AppData/Local/Pub/Cache/hosted/pub.dev/intl-0.18.1/
+file:///C:/Users/joe/AppData/Local/Pub/Cache/hosted/pub.dev/intl-0.18.1/lib/
 leak_tracker
 3.1
 file:///C:/Users/joe/AppData/Local/Pub/Cache/hosted/pub.dev/leak_tracker-10.0.0/
@@ -94,6 +102,10 @@ meta
 2.12
 file:///C:/Users/joe/AppData/Local/Pub/Cache/hosted/pub.dev/meta-1.11.0/
 file:///C:/Users/joe/AppData/Local/Pub/Cache/hosted/pub.dev/meta-1.11.0/lib/
+month_year_picker
+3.0
+file:///C:/Users/joe/AppData/Local/Pub/Cache/hosted/pub.dev/month_year_picker-0.3.0+1/
+file:///C:/Users/joe/AppData/Local/Pub/Cache/hosted/pub.dev/month_year_picker-0.3.0+1/lib/
 nested
 2.12
 file:///C:/Users/joe/AppData/Local/Pub/Cache/hosted/pub.dev/nested-1.0.0/
