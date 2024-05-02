@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'main.dart';
-import 'cart.dart'; // Ensure that Cart class is imported
 
 class OrderSuccessPage extends StatelessWidget {
   final String orderNumber;

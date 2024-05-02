@@ -113,6 +113,13 @@ class HomePage extends StatefulWidget {
         imagePath: 'assets/images/product11.png',
         description: 'Core I9-10900K New I9 10900K 3.7 GHz Ten-Core Twenty-Thread CPU Processor L3=20M 125W LGA 1200.'
     ),
+    Product(
+        productName: 'Windows Clippy',
+        productPrice: 1.99,
+        imagePath: 'assets/images/clippy.png',
+        description: 'Microsofts beloved clippy.'
+    ),
+
   ];
 
   @override
@@ -239,6 +246,7 @@ class _HomePageState extends State<HomePage> {
       body: Container(
         color: Colors.white,
         child: ListView.builder(
+          physics: BouncingScrollPhysics(parent: AlwaysScrollableScrollPhysics()), //Allows Scrolling Past bottom
           itemCount: widget.products.length,
           itemBuilder: (context, index) {
             final product = widget.products[index];
